@@ -1,4 +1,4 @@
-# Use an official Python runtime as a parent image
+# Use an official Ubuntu runtime as a parent image
 FROM ubuntu:latest
 
 # Set the working directory in the container
@@ -18,6 +18,9 @@ RUN apt-get update && \
   apt install -y python3.7
 
 # Install python environment 
+RUN apt-get install -y libsndfile1
+RUN apt-get install -y timidity
+RUN apt-get install -y ffmpeg
 RUN apt install -y python3-pip
 RUN apt install -y python3.7-distutils
 RUN apt-get install -y python3.7-dev 
@@ -28,4 +31,4 @@ RUN python3.7 -m pip install numpy
 RUN python3.7 -m pip install chord-extractor
 
 # Run your Python script when the container launches
-CMD ["python3.7", "main.py"]
+CMD ["python3.7", "main.py", "/usr/a.mp3"]

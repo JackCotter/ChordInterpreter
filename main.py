@@ -1,18 +1,18 @@
 from chord_extractor.extractors import Chordino
-import os
+import sys
 
-SOURCE_FILE = os.environ.get("SOURCE_FILE")
+SOURCE_FILE = sys.argv[1]
 
 print ("Starting Chordino...")
-print (SOURCE_FILE)
+print ("Source path: " + SOURCE_FILE)
 # Setup Chordino with one of several parameters that can be passed
 chordino = Chordino(roll_on=1)  
 
 # Optional, only if we need to extract from a file that isn't accepted by librosa
-conversion_file_path = chordino.preprocess(SOURCE_FILE)
+# conversion_file_path = chordino.preprocess(SOURCE_FILE)
 
 # Run extraction
-chords = chordino.extract(conversion_file_path)
+chords = chordino.extract(SOURCE_FILE)
 print(chords)
 # => [  ChordChange(chord='N', timestamp=0.371519274), 
 #       ChordChange(chord='C', timestamp=0.743038548), 
