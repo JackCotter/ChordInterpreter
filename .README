@@ -1,0 +1,8 @@
+Installation:
+
+1. cd into /PROOF_OF_CONCEPT directory
+2. Install Docker Desktop: https://www.docker.com/products/docker-desktop/
+3. Run
+   ` docker build -t chord-recognizer-container .`
+   To build container. Installation will take some time.
+4. Run
